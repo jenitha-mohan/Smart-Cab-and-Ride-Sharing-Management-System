@@ -35,8 +35,8 @@ public class RideController {
 
     @DeleteMapping("/{id}")
     public String deleteRide(@PathVariable Long id){
-        rideService.deleteRide(id);
-        return "Ride deleted successfully!";
+         boolean deleted=rideService.deleteRide(id);
+        return deleted? "Ride deleted successfully!":"Ride not found";
 
     }
 

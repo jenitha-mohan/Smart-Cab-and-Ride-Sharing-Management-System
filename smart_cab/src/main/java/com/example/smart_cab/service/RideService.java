@@ -29,21 +29,11 @@ public class RideService {
         Ride ride = rideRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Ride not found"));
 
-        if (rideDetails.getPickupLocation() != null)
-            ride.setPickupLocation(rideDetails.getPickupLocation());
-        if (rideDetails.getDropoffLocation() != null)
-            ride.setDropoffLocation(rideDetails.getDropoffLocation());
-        if (rideDetails.getFare() != null)
-            ride.setFare(rideDetails.getFare());
-        if (rideDetails.getStatus() != null)
-            ride.setStatus(rideDetails.getStatus());
-        if (rideDetails.getCompletedAt() != null)
-            ride.setCompletedAt(rideDetails.getCompletedAt());
-        if (rideDetails.getDriver() != null)
-            ride.setDriver(rideDetails.getDriver());
-        if (rideDetails.getCab() != null)
-            ride.setCab(rideDetails.getCab());
-
+        ride.setPickupLocation(rideDetails.getPickupLocation());
+        ride.setDropoffLocation(rideDetails.getDropoffLocation());
+        ride.setFare(rideDetails.getFare());
+        ride.setStatus(rideDetails.getStatus());
+        ride.setCompletedAt(rideDetails.getCompletedAt());
         return rideRepository.save(ride);
     }
 
