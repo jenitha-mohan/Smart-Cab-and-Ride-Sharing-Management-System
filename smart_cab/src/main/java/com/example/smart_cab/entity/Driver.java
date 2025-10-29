@@ -11,13 +11,16 @@ public class Driver {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long driverId;
+    @Column(nullable=false)
     private String name;
-     @Column(unique=true,nullable=false)
-     private String email;
-     private String phone;
-     private String licenseNumber;
-     private String vehicleNumber;
-     private boolean available=true;
+    @Column(unique=true)
+    private String phone;
+    @Column(unique=true,nullable=false)
+
+    private String license_number;
+    private Double rating=0.0;
+    private String status="AVAILABLE";
+    //private boolean available=true;
 
     
 }

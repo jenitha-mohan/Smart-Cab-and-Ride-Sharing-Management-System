@@ -23,7 +23,7 @@ public class DriverController{
 
     @PostMapping
     public Driver createDriver(@RequestBody Driver driver){
-        return driverService.createDriver(driver);
+        return driverService.addDriver(driver);
     }
 
     @PutMapping("/{id}")
@@ -33,7 +33,7 @@ public class DriverController{
     
     @DeleteMapping("/{id}")
     public String deleteDriver(@PathVariable Long id) {
-        driverService.deleteDriver(id);
-        return "Driver deleted successfully!";
+        boolean deleted =driverService.deleteDriver(id);
+        return deleted? "Driver deleted successfully!":"Driver not found!";
     }
 }
